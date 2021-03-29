@@ -1,0 +1,15 @@
+services:
+  mc:
+    image: itzg/minecraft-server:java8
+    container_name: ftb
+    restart: always
+    volumes:
+    - ./modpacks:/modpacks:ro
+    - ./data:/data
+    environment:
+      EULA: "TRUE"
+      MAX_MEMORY: 14G
+      TYPE: CURSEFORGE
+      CF_SERVER_MOD: /modpacks/SIMPLE-SERVER-FILES-1.5.7.zip
+    ports:
+      - 25565:25565
